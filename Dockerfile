@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-LABEL org.opencontainers.image.source="https://github.com/TU_USUARIO/digitalocean-hello-world" \
+LABEL org.opencontainers.image.source="https://github.com/Tisicd/digitalocean-hello-world" \
       org.opencontainers.image.title="DigitalOcean Hello World" \
       org.opencontainers.image.description="Sitio estático minimalista para DigitalOcean App Platform" \
       org.opencontainers.image.licenses="MIT"
