@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola DigitalOcean</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #031b4e, #020817 65%);
+        color: #e2e8f0;
+      }
+      main {
+        max-width: 640px;
+        padding: 3.5rem 3rem;
+        text-align: center;
+        background: rgba(15, 23, 42, 0.78);
+        border-radius: 24px;
+        box-shadow: 0 40px 90px rgba(14, 116, 213, 0.3);
+        backdrop-filter: blur(14px);
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.06em;
+      }
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin: 0.75rem 0;
+        opacity: 0.92;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.45rem 1.1rem;
+        border-radius: 999px;
+        background: rgba(14, 165, 233, 0.32);
+        color: #bae6fd;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1.75rem;
+      }
+      code {
+        background: rgba(14, 116, 213, 0.2);
+        color: #f8fafc;
+        padding: 0.3rem 0.55rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+      }
+      footer {
+        margin-top: 2.4rem;
+        font-size: 0.85rem;
+        color: rgba(226, 232, 240, 0.7);
+      }
+      a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="badge">Distribuida Cloud • App Platform Ready</div>
+      <h1>Hola desde DigitalOcean</h1>
+      <p>
+        Esta landing <em>Hello World</em> prueba el flujo de despliegue para un sitio estático en
+        <strong>DigitalOcean App Platform</strong>, aprovechando la CDN global y certificados TLS automáticos.
+      </p>
+      <p>
+        Clona el repositorio, ejecuta <code>doctl apps create --spec app.yaml</code> y tendrás la aplicación online en minutos.
+      </p>
+      <p>
+        Consulta la documentación oficial para personalizar redirecciones, caché y conexiones a APIs externas desde
+        <a href="https://docs.digitalocean.com/products/app-platform">docs.digitalocean.com</a>.
+      </p>
+      <footer>Proyecto educativo • Distribuida Cloud • Noviembre 2025</footer>
+    </main>
+  </body>
+</html>
+
