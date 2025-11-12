@@ -4,9 +4,9 @@ Minimal static site ready to deploy on DigitalOcean App Platform, aligned with t
 
 ## Structure
 
-- `index.html`: main page content.
-- `app.yaml`: App Platform static site specification.
-- `Dockerfile`: lightweight Nginx image for local testing or container-based delivery.
+- `index.html`: main page content
+- `app.yaml`: App Platform service specification
+- `Dockerfile`: lightweight Nginx image for local testing or container-based delivery
 
 ## Prerequisites
 
@@ -34,6 +34,25 @@ Minimal static site ready to deploy on DigitalOcean App Platform, aligned with t
    doctl apps logs <APP_ID>
    ```
 4. Configure custom domains and automatic HTTPS from the DigitalOcean dashboard.
+
+## Automated CI/CD
+
+This repository ships with a GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
+
+- Builds and publishes the Docker image to Docker Hub.
+- Updates the existing DigitalOcean App Platform application by reusing `app.yaml`.
+
+### Required secrets
+
+In **Settings → Secrets and variables → Actions** add:
+
+- `DOCKERHUB_USERNAME`: Docker Hub username.
+- `DOCKERHUB_TOKEN`: Docker Hub access token or password.
+- `DOCKERHUB_REPOSITORY`: full repository name (e.g. `youruser/digitalocean-hello-world`).
+- `DO_ACCESS_TOKEN`: DigitalOcean personal access token with App Platform permissions.
+- `DO_APP_ID`: App identifier (`doctl apps list`).
+
+The workflow runs on every push to `main` or manually via `workflow_dispatch`. It publishes two tags per build (`latest` and the commit `SHA`) and triggers a new deployment in App Platform.
 
 ## Reference Docker Image
 
@@ -65,8 +84,8 @@ docker push youruser/digitalocean-hello-world:latest
 
 ## Suggested Next Steps
 
-- Integrate CI/CD pipelines with GitHub Actions and `doctl apps update`.
-- Add monitoring via DigitalOcean Uptime or third-party services.
+- Integrate additional CI/CD stages with GitHub Actions and `doctl apps update`.
+- Add monitoring through DigitalOcean Uptime or third-party services.
 - Attach a backend component in App Platform (`service` or `worker`) if dynamic features are required.
 - Explore Spaces + CDN to serve assets globally with cached distribution.
 

@@ -1,20 +1,14 @@
 name: digitalocean-hello-world
 region: nyc
-static_sites:
+services:
   - name: static-frontend
-    github:
-      repo: Tisicd/digitalocean-hello-world
-      branch: main
-      deploy_on_push: true
-    source_dir: /
-    build_command: ""
-    run_command: ""
-    output_dir: /
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 80
+    image:
+      registry_type: DOCKER_HUB
+      repository: ${DOCKERHUB_REPOSITORY}
+      tag: ${DOCKERHUB_TAG}
     routes:
       - path: /
-    environment_slug: static-sites
-    cors:
-      allow_origins: ["*"]
-      allow_methods: ["GET", "HEAD"]
-      allow_headers: ["*"]
 
